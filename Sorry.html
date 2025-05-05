@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For You</title>
+  <style>
+    body {
+      background: #ffeef2;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .message {
+        font-style: italic;
+        font-size: 16px;
+        line-height: 1.8;
+        color: #444;
+        white-space: pre-line;
+      }
+      
+
+    .envelope {
+      width: 200px;
+      height: 120px;
+      background: #f06292;
+      position: absolute;
+      border-radius: 6px;
+      cursor: pointer;
+      animation: flyIn 2s ease forwards;
+      top: -200px;
+    }
+
+    .envelope::before,
+    .envelope::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+
+    .envelope::before {
+      border-width: 60px 100px 0 100px;
+      border-color: #f8bbd0 transparent transparent transparent;
+      top: 0;
+      left: 0;
+    }
+
+    .envelope::after {
+      border-width: 0 100px 60px 100px;
+      border-color: transparent transparent #f06292 transparent;
+      bottom: 0;
+      left: 0;
+    }
+
+    @keyframes flyIn {
+      0% { top: -200px; opacity: 0; transform: rotate(-10deg) scale(0.5); }
+      60% { top: 30%; opacity: 1; transform: rotate(5deg) scale(1.1); }
+      100% { top: 50%; transform: rotate(0deg) scale(1); transform: translateY(-50%); }
+    }
+
+    .letter {
+      display: none;
+      background: rgb(243, 188, 188);
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .show {
+      display: block;
+    }
+
+    h1 {
+      color: #d81b60;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #333;
+    }
+
+   /* Default styling for larger screens */
+.side-gif {
+    position: absolute;
+    top: 50%;
+    width: 180px; /* Larger GIFs */
+    transform: translateY(-50%);
+    display: none;
+    z-index: 1;
+}
+
+.side-gif.left {
+    left: 25%; /* Move the left GIF closer */
+}
+
+.side-gif.right {
+    right: 25%; /* Move the right GIF closer */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+    .side-gif {
+        width: 120px; /* Smaller GIFs on mobile */
+    }
+
+    .side-gif.left {
+        left: 15%; /* Adjust positioning for mobile */
+    }
+
+    .side-gif.right {
+        right: 15%; /* Adjust positioning for mobile */
+    }
+
+    .letter {
+        width: 250px; /* Adjust letter width for mobile */
+        padding: 15px; /* Adjust padding for mobile */
+    }
+}
+
+      #letter {
+        display: none;
+        /* your existing styling here */
+      }
+      
+      #letter.show {
+        display: block;
+      }
+      
+  </style>
+</head>
+<body>
+
+  <div class="envelope" id="envelope" onclick="openLetter()"></div>
+
+  <div class="letter" id="letter">
+    <h1>I love you:( 💌</h1>
+    <p class="message">
+        I said some words that I can't defend,
+        they were too much, can't easily mend.
+        My tongue was vulgar, I was blind,
+        I  let out words that weren't kind. 
+        
+        No excuse or reasons can make it right, 
+        Not anything can soften what took flight.
+        From all my faults, I clearly see,
+        please know you mean the world to me.
+        
+        You heart deserves love, not pain.
+        Not violent words or my anger's rain.
+        If I could only take those words away,
+        I'd take action quickly without delay.
+        
+        So please, if you can find in your heart,
+        to let me fix what I torn apart,
+        I'll cherish your love with all my soul,
+        and make things right, to make us whole💖
+    </p>
+  </div>
+
+  <img src="sorry1.gif" id="leftGif" class="side-gif left" />
+  <img src="sorry-sad.gif" id="rightGif" class="side-gif right" />
+
+    <script>
+        function openLetter() {
+            document.getElementById('envelope').style.display = 'none'; // Change this line to match the correct ID
+            document.getElementById('letter').classList.add('show');
+            document.getElementById('leftGif').style.display = 'block';
+            document.getElementById('rightGif').style.display = 'block';
+          }
+          
+        </script>
+        
+  </script>
+
+</body>
+</html>
